@@ -1,2 +1,2 @@
 # airlineapp
-For fun app to load flight data online.
+This is a fun project that I'm doing as I sit on a plane to create a new simple website leveraging python, flask, and github. I'm new to all of these, and wanted to create something useful, then insert it into Azure Web Apps for public hosting. The entire project top to bottom is a proof of concept for professional and personal development. This entire project is complmenets of Chat GPT logic. It gave me the instructions to create the site, load flask, wrote the python code for me that calls the airline API to deliver fly information, and told me how to load it into a new repository (as well as how to create a repo). What a fucking world we live in...
