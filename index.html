@@ -1,34 +1,16 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Flight Information</title>
-	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
-</head>
-<body>
-	<h1>Flight Information</h1>
-	<form action="{{ url_for('flightinfo') }}" method="POST">
-		<label for="airline_code">Airline Code:</label>
-		<input type="text" id="airline_code" name="airline_code" required><br>
-
-		<label for="flight_number">Flight Number:</label>
-		<input type="text" id="flight_number" name="flight_number" required><br>
-
-		<label for="year">Year:</label>
-		<input type="text" id="year" name="year" required><br>
-
-		<label for="month">Month:</label>
-		<input type="text" id="month" name="month" required><br>
-
-		<label for="day">Day:</label>
-		<input type="text" id="day" name="day" required><br>
-
-		<input type="submit" value="
-	
-  <form method="post" action="/flightinfo">
-    <input type="text" name="flight_number" placeholder="Flight Number" required><br>
-    <input type="text" name="flight_date" placeholder="Flight Date (YYYY-MM-DD)" required><br>
-    <button type="submit">Generate</button>
-</form>
-
-			 
-			 </html>
+  <head>
+    <title>Flight Information App</title>
+  </head>
+  <body>
+    <h1>Flight Information App</h1>
+    <form action="/get_flight_info" method="POST">
+      <label for="flight_number">Flight Number:</label>
+      <input type="text" id="flight_number" name="flight_number"><br><br>
+      <label for="flight_date">Flight Date:</label>
+      <input type="text" id="flight_date" name="flight_date"><br><br>
+      <button type="submit" id="generate_button">Generate</button>
+    </form>
+  </body>
+</html>
