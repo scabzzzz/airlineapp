@@ -5,12 +5,35 @@
   </head>
   <body>
     <h1>Flight Information App</h1>
-    <form action="/get_flight_info" method="POST">
-      <label for="flight_number">Flight Number:</label>
-      <input type="text" id="flight_number" name="flight_number"><br><br>
-      <label for="flight_date">Flight Date:</label>
-      <input type="text" id="flight_date" name="flight_date"><br><br>
-      <button type="submit" id="generate_button">Generate</button>
-    </form>
+    <def status(soup, Airport_list):
+    Time_status = []
+    Airport_List = []
+    Status_str = []
+    Gate = []
+    Gate_no = []
+
+    # Find div tag with
+    # unique class name
+    # to get Gate number
+    for data in soup.find_all("div", class_="ticket__TGBLabel-s1rrbl5o-15 gcbyEH text-helper__TextHelper-s8bko4a-0 dfeqpK"):
+        Gate.append(data.get_text())
+    for data in soup.find_all("div", class_="ticket__TGBValue-s1rrbl5o-16 icyRae text-helper__TextHelper-s8bko4a-0 cCfBRT"):
+        Gate_no.append(data.get_text())
+
+    # Get status from
+    # html code
+    for i in soup.find_all("div", class_="text-helper__TextHelper-s8bko4a-0 bcmzUJ"):
+        Status_str.append(i.get_text())
+    for i in soup.find_all("div", class_="text-helper__TextHelper-s8bko4a-0 cCfBRT"):
+        Time_status.append(i.get_text())
+
+    # Build the HTML table
+    table = '<table><tr><th>Airport</th><th>Status</th><th>Time</th><th>Gate</th></tr>'
+    for i in range(len(Airport_list)):
+        table += f'<tr><td>{Airport_list[i]}</td><td>{Status_str[i]}</td><td>{Time_status[i]}</td><td>{Gate[i]}: {Gate_no[i]}</td></tr>'
+    table += '</table>'
+
+    return table
+
   </body>
 </html>
